@@ -31,3 +31,6 @@ default-character-set=utf8
 ```
 CREATE DATABASE educattion_book DEFAULT CHARACTER SET utf8
 ```
+
+## 画面イメージ
+![画面イメージ](https://github.com/palette-education-ms/JavaEE7Education/blob/master/img/画面イメージ.png "画面イメージ")
