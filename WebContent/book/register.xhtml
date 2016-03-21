@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://xmlns.jcp.org/jsf/passthrough">
+
+<h:head>
+	<meta charset="UTF-8" />
+	<h:outputStylesheet library="css" name="style.css" />
+	<title>書籍登録</title>
+</h:head>
+<body>
+
+	<h1>書籍登録</h1>
+	<h:form id="form">
+		<div class="entry">
+			<div>
+				<label>ISBN</label>
+				<div>
+					<h:inputText id="isbn" p:placeholder="000-0-00-000000-0" value="#{bookRegisterBean.book.isbn}" />
+					<h:message for="isbn" errorClass="error" />
+				</div>
+			</div>
+			<div>
+				<label>書籍名</label>
+				<div>
+					<h:inputText id="bookname" value="#{bookRegisterBean.book.name}" />
+					<h:message for="bookname" errorClass="error" />
+				</div>
+			</div>
+			<div>
+				<h:commandButton action="#{bookRegisterBean.register()}" value="登録" />
+			</div>
+		</div>
+		<div>
+			<h:link outcome="list" value="戻る" />
+		</div>
+	</h:form>
+</body>
+</html>

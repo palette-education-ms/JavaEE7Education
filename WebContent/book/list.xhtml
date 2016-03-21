@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://xmlns.jcp.org/jsf/passthrough">
+
+<h:head>
+	<meta charset="UTF-8" />
+	<h:outputStylesheet library="css" name="style.css" />
+	<title>書籍一覧</title>
+</h:head>
+<body>
+
+	<h1>書籍一覧</h1>
+	<f:metadata>
+		<f:viewAction action="#{bookListBean.list()}" onPostback="true" />
+	</f:metadata>
+	<table class="table">
+		<tr>
+			<th>ISBN</th>
+			<th>書籍名</th>
+			<th>登録日時</th>
+			<th>更新日時</th>
+			<th></th>
+		</tr>
+		<ui:repeat var="row" value="#{bookListBean.bookList}">
+			<tr>
+				<td><h:outputText value="#{row.isbn}" /></td>
+				<td><h:outputText value="#{row.name}" /></td>
+				<td><h:outputText value="#{row.registerDate}">
+						<f:convertDateTime pattern="yyyy/MM/dd HH:mm:dd" />
+					</h:outputText></td>
+				<td><h:outputText value="#{row.updateDate}">
+						<f:convertDateTime pattern="yyyy/MM/dd HH:mm:dd" />
+					</h:outputText></td>
+				<td><h:commandButton value="編集" /><h:commandButton value="削除" /></td>
+			</tr>
+		</ui:repeat>
+
+	</table>
+
+	<h:button outcome="register" value="登録" />
+
+</body>
+</html>
